@@ -4,7 +4,10 @@
   "description": "Main website for guclink",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "gulp test"
+    "deploy": "gulp production --dest /srv/www",
+    "test": "gulp test",
+    "dev": "gulp dev",
+    "dist": "gulp production"
   },
   "repository": {
     "type": "git",
