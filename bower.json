@@ -27,6 +27,8 @@
     "angular-ui-router-title": "^0.0.4",
     "angular-messages": "^1.5.3",
     "angular-animate": "^1.5.3",
-    "angular-local-storage": "^0.2.7"
+    "guclink-constants": "ah450/guclink-constants",
+    "ng-cookies": "^1.1.1",
+    "guclink-satellizer-decorator": "ah450/guclink-satellizer-decorator"
   }
 }
