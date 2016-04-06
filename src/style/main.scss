@@ -13,6 +13,8 @@ body {
   font-weight: $normal-weight;
   position: relative;
   min-height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
   box-sizing: border-box;
   background: $main-background;
 

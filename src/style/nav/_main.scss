@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   height: 80px;
-  width: 100vw;
+  width: 100%;
   perspective: 1000px;
   transform: translateY(-100%);
   transition: transform .5s $snap;
@@ -19,8 +19,10 @@
 
     li {
       display: inline-block;
+      position: relative;
       font-size: 1rem;
       padding-top: 1em;
+      padding-bottom: .7em;
       height: 100%;
       width: 25%;
       text-align: center;
@@ -37,6 +39,27 @@
         background-color: darken($md-clr-blue-500, 43%);
         i {
           color: white;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0;
+          bottom: .5em;
+          left: calc(50% - .5em);
+          border-left: .5em solid transparent;
+          border-right: .5em solid transparent;
+          border-bottom: .5em solid $md-clr-pink-A400;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: .5em;
+          width: 100%;
+          background-color: $md-clr-pink-A400;
+
         }
       }
 
