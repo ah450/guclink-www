@@ -36,6 +36,7 @@ set :deploy_to, '/root/guclink_www'
 set :keep_releases, 2
 
 namespace :deploy do
+
   desc 'Install node modules'
   task :install_node_modules do
     on roles(:web) do
@@ -54,17 +55,15 @@ namespace :deploy do
     end
   end
 
-
   desc 'Chown srv to nginx'
-  task :chown_srv_directory do
+  task :set_nginx_permissions do
     on roles(:web) do
       execute :chown, '-R', 'nginx:nginx', '/srv/www'
       execute :restorecon, '-R', '-v', '/srv/www'
     end
   end
 
+  after :updated, :install_node_modules
+  after :updated, :deploy_npm
+  after :publishing, :set_nginx_permissions
 end
-
-after :updated, :install_node_modules
-after :updated, :deploy_npm
-after :published, :chown_srv_directory
