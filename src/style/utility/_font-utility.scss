@@ -87,16 +87,10 @@
   display: block;
   cursor: pointer;
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 2px;
   color: $md-clr-pink-500;
   transition: color .2s;
   background: transparent;
-
-  @include media('<tablet') {
-    letter-spacing: 1px;
-  }
-
   &:hover {
     color: $md-clr-pink-A100;
     .icon:after {

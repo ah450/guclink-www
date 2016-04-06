@@ -1,3 +1,3 @@
 angular.module 'guclinkMain'
-  .config ($urlRouterProvider), ->
+  .config ($urlRouterProvider) ->
     $urlRouterProvider.when '', '/home'

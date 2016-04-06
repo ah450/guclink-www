@@ -16,16 +16,16 @@
   ga('create', 'UA-75912438-1', 'auto');
 </script>
 </head>
-<body
->
-  <div id="pageWrap">
-    <div data-ui-view class="wrapper" id="main-view"></div>
-    <div data-ng-include="'nav.html'"></div>
-    <footer><a
-    analytics-on="click"
-    analytics-event="gh-repo"
-    target="_blank" href="https://github.com/ah450/guclink-www"><img src="images/GitHub-Mark-64px.png"></a></footer>
-  </div>
+<body class="nav-visible">
+  <header id="main-header">
+    <button class="nav-trigger"></button>
+  </header>
+  <div data-ui-view class="wrapper" id="main-view"></div>
+  <div data-ng-include="'partials/nav.html'"></div>
+  <footer><a
+  analytics-on="click"
+  analytics-event="gh-repo"
+  target="_blank" href="https://github.com/ah450/guclink-www"><img src="images/GitHub-Mark-64px.png"></a></footer>
   <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

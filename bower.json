@@ -28,7 +28,7 @@
     "angular-messages": "^1.5.3",
     "angular-animate": "^1.5.3",
     "guclink-constants": "ah450/guclink-constants",
-    "ng-cookies": "^1.1.1",
-    "guclink-satellizer-decorator": "ah450/guclink-satellizer-decorator"
+    "guclink-satellizer-decorator": "ah450/guclink-satellizer-decorator",
+    "angular-cookies": "^1.5.3"
   }
 }

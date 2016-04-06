@@ -33,17 +33,38 @@ set :deploy_to, '/root/guclink_www'
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 2
 
 namespace :deploy do
+  desc 'Install node modules'
+  task :install_node_modules do
+    on roles(:web) do
+      within release_path do
+        execute :npm, 'install'
+      end
+    end
+  end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+  desc 'Deploy application'
+  task :deploy_npm do
+    on roles(:web) do
+      within release_path do
+        execute :npm, 'run', 'deploy'
+      end
+    end
+  end
+
+
+  desc 'Chown srv to nginx'
+  task :chown_srv_directory do
+    on roles(:web) do
+      execute :chown, '-R', 'nginx:nginx', '/srv/www'
+      execute :restorecon, '-R', '-v', '/srv/www'
     end
   end
 
 end
+
+after :updated, :install_node_modules
+after :updated, :deploy_npm
+after :published, :chown_srv_directory
