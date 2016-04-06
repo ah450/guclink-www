@@ -22,16 +22,7 @@ angular.module 'guclinkMain'
       templateUrl: 'status.html'
       controller: 'StatusController'
 
-    legalState =
-      name: 'legal'
-      url: '/legal'
-      resolve:
-        $title: ->
-          'Terms of Service'
-      templateUrl: 'legal.html'
-
     $stateProvider
       .state homeState
       .state aboutState
-      .state legalState
       .state statusState

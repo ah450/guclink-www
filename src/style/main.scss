@@ -40,7 +40,7 @@ a.link {
   cursor: pointer;
 }
 
-[data-ui-view='pageContent'] {
+.wrapper {
   margin: 0 auto;
   padding-top: 15vh;
   min-height: calc(100vh - 15vh);
