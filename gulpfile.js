@@ -30,6 +30,15 @@ gulp.task('bower', ['bower-install', 'create-dirs'], function() {
     .pipe(gulp.dest('libs'));
 });
 
+
+gulp.task('bower-dev', ['bower-install', 'create-dirs'], function() {
+  // moves main files to lib folder
+  return gulp.src(mainBowerFiles({
+    includeDev: 'inclusive'
+  }), {base: 'bower_components'})
+    .pipe(gulp.dest('libs'));
+});
+
 gulp.task('create-dirs', function() {
   var dirs = ['build', 'dist', 'libs', 'test', 'compiledSpecs'];
   rimraf.sync('libs');
