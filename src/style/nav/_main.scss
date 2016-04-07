@@ -1,14 +1,17 @@
 #main-header {
+  position: relative;
+  width: 100vw;
   transition: transform .5s $snap;
+  transform: translateY(15px);
 }
 
 .flip-nav {
   position: absolute;
   top: 0;
   left: 0;
-  height: 80px;
   width: 100%;
   perspective: 1000px;
+  transform-style: preserve-3d;
   transform: translateY(-100%);
   transition: transform .5s $snap;
 
@@ -16,6 +19,9 @@
     font-size: 0;
     width: 100%;
     background-color: darken($md-clr-blue-500, 35%);
+    transform: rotateX(90deg);
+    transform-origin: bottom center;
+    transition: transform .5s $snap;
 
     li {
       display: inline-block;
@@ -37,9 +43,11 @@
 
       &.active {
         background-color: darken($md-clr-blue-500, 43%);
+
         i {
           color: white;
         }
+
         &::before {
           content: '';
           position: absolute;
@@ -51,6 +59,7 @@
           border-right: .5em solid transparent;
           border-bottom: .5em solid $md-clr-pink-A400;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -67,21 +76,113 @@
   }
 }
 
+.nav-trigger {
+  position: absolute;
+  right: 1em;
+  top: 0;
+  width: 2em;
+  background: transparent;
+  transition: transform .5s $snap;
+
+  span {
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: $md-clr-blue;
+      height: .25em;
+      top: -.1em;
+      width: 50%;
+      transition: all .25s ease-in-out;
+    }
+
+    &::before {
+      left: 0;
+      border-top-left-radius: 9px;
+      border-bottom-left-radius: 9px;
+    }
+
+    &::after {
+      left: 50%;
+      border-top-right-radius: 9px;
+      border-bottom-right-radius: 9px;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: .25em;
+    width: 100%;
+    background: $md-clr-blue;
+    transition: all .5s $snap;
+    border-radius: 9px;
+  }
+
+  &::before {
+    top: -.5em;
+  }
+
+  &::after {
+    bottom: -.5em;
+  }
+
+}
+
 .wrapper {
   transition: transform .5s $snap;
 }
 
 .nav-visible {
   #main-header {
-    transform: translateY(80px);
+    transform: translateY(8em);
   }
 
   .flip-nav {
     transform: translateY(0);
+
+    ul {
+      transform: rotateX(0);
+    }
   }
 
   .wrapper {
     transform: translateY(80px);
+  }
+
+  .nav-trigger {
+    &::before,
+    &::after {
+      bottom: 0;
+      top: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    span {
+
+      &::before {
+        left: -100%;
+        opacity: 0;
+      }
+
+      &::after {
+        left: 100%;
+        opacity: 0;
+      }
+    }
   }
 
 }

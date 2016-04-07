@@ -16,9 +16,11 @@
   ga('create', 'UA-75912438-1', 'auto');
 </script>
 </head>
-<body class="nav-visible">
+<body>
   <header id="main-header">
-    <button class="nav-trigger"></button>
+    <button
+    data-click-toggle="nav-visible" data-click-toggle-target="body"
+    class="nav-trigger"><span></span></button>
   </header>
   <div data-ui-view class="wrapper" id="main-view"></div>
   <div data-ng-include="'partials/nav.html'"></div>

@@ -20,7 +20,6 @@ angular.module 'guclinkMain'
         $title: ->
           'API Status'
       templateUrl: 'status.html'
-      controller: 'StatusController'
 
     $stateProvider
       .state homeState

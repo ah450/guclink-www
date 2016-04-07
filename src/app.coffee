@@ -1,7 +1,7 @@
 angular.module 'guclinkMain', ['ui.router', 'ui.router.title',
   'guclinkMainTemplates', 'satellizer', 'ngCookies', 'ngAnimate',
   'angulartics', 'angulartics.google.analytics', 'ngMaterial', 'ngMessages',
-  'guclinkConstants']
+  'guclinkConstants', 'ngClickToggle', 'ngClickRemove']
 
 
 angular.module 'guclinkMain'
