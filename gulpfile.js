@@ -31,7 +31,7 @@ gulp.task('bower', ['bower-install', 'create-dirs'], function() {
 });
 
 gulp.task('create-dirs', function() {
-  var dirs = ['build', 'dist', 'libs'];
+  var dirs = ['build', 'dist', 'libs', 'test', 'compiledSpecs'];
   rimraf.sync('libs');
   dirs.forEach(function(dir) {
     try {
@@ -118,4 +118,27 @@ gulp.task('watch', function() {
   watch(['src/**', 'images/**', 'assets/**', 'polyfills/**', 'fonts/**', 'bower.json'], function() {
     gulp.start('reload');
   });
+});
+
+
+
+gulp.task('build-test', ['create-dirs', 'bower-dev'], function() {
+  var scriptStream = scripts.processScripts();
+  var dependenciesStream = scripts.processDeps().pipe(concat('app-deps.js'));
+  var routesStream = scripts.processRoutes();
+  var templatesStream = templates.processTemplates();
+  var js = merge(templatesStream, scriptStream, routesStream)
+    .pipe(concat('app-testing.js'))
+  var appStreams = merge([dependenciesStream, js]).pipe(gulp.dest('test'))
+  var specStream = scripts.processSpecs().pipe(gulp.dest('compiledSpecs'))
+  return merge([appStreams, specStream]);
+});
+
+
+gulp.task('test', ['build-test'], function (done) {
+  var Server = require('karma').Server;
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
