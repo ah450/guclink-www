@@ -1,0 +1,21 @@
+
+.status-progress {
+  display: inline-block;
+}
+
+.status-item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+
+
+  &:not(.okay).partial{
+    background-color: yellow;
+  }
+
+  &.okay {
+    background-color: green;
+  }
+}
