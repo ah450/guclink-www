@@ -19,7 +19,6 @@
     font-size: 0;
     width: 100%;
     background-color: darken($md-clr-blue-500, 35%);
-    transform: rotateX(90deg);
     transform-origin: bottom center;
     transition: transform .5s $snap;
 
@@ -146,10 +145,6 @@
 
   .flip-nav {
     transform: translateY(0);
-
-    ul {
-      transform: rotateX(0);
-    }
   }
 
   .wrapper {
