@@ -82,7 +82,8 @@
   width: 2em;
   background: transparent;
   transition: transform .5s $snap;
-
+  z-index: 100;
+  
   span {
 
     &::before,
