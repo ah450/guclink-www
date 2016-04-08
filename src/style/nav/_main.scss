@@ -77,13 +77,13 @@
 
 .nav-trigger {
   position: absolute;
-  right: 1em;
-  top: 0;
+  right: 2em;
+  top: 1.5em;
   width: 2em;
   background: transparent;
   transition: transform .5s $snap;
   z-index: 100;
-  
+
   span {
 
     &::before,
