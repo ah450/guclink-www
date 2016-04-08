@@ -33,7 +33,7 @@ set :deploy_to, '/root/guclink_www'
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-set :keep_releases, 2
+set :keep_releases, 1
 
 namespace :deploy do
 

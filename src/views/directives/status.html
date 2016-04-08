@@ -1,10 +1,10 @@
-<md-list-item class="md-2-line">
-  <md-progress-circular class="status-progress" data-ng-if="loading" class="md-hue-2" md-diameter="20px"></md-progress-circular>
-  <span class="status-item"
-  data-ng-if="!loading"
-  data-ng-class="{okay: okay, partial: (db || redis)}"></span>
-  <div class="md-list-item-text">
-    <h3>{{serviceName}}</h3>
-    <p>{{translateStatus()}}</p>
+<div class="status-item">
+  <div class="flex-row-between">
+    <h3>{{serviceName}}<h3>
+    <md-progress-circular class="status-progress" data-ng-if="loading" class="md-hue-2" md-diameter="20px"></md-progress-circular>
+    <span class="status-indicator"
+    data-ng-if="!loading"
+    data-ng-class="{okay: okay, partial: (db || redis)}"></span>
+    <span>{{translateStatus()}}</span>
   </div>
-</md-list-item>
+</div>
