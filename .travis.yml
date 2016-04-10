@@ -7,5 +7,11 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 before_script:
   - npm install
+  - npm install -g codeclimate-test-reporter
 script:
   - npm run test
+  - codeclimate-test-reporter < coverage/report-lcov/lcov.info
+
+addons:
+    code_climate:
+        repo_token: e4d6b596f47db1f9fff83f3adf05982884fe31f2e0b20698b7a8ba892b863a1f
